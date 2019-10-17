@@ -215,6 +215,21 @@ class App extends Component {
     }
   }
 
+  result = () => {
+    let largestObj = {
+      value: -1,
+    }
+    const {
+      result
+    } = this.state
+    for(let i = 0; i < 7; i++) {
+      if (largestObj.value < result[i].value) {
+        largestObj = result[i]
+      }
+    }
+    return largestObj
+  }
+
   select = (question, index) => {
     this.setState(prevState => {
       let questionAnswer = {...prevState.questionAnswer};
@@ -458,7 +473,7 @@ class App extends Component {
             this.setState(prevState => {
               let result = {...prevState.result};
               result[5].value += 2;
-              result[7].value += 1;
+              result[0].value += 1;
               return result;
             });
             break;
@@ -495,7 +510,7 @@ class App extends Component {
             this.setState(prevState => {
               let result = {...prevState.result};
               result[4].value += 3;
-              result[7].value += 2;
+              result[0].value += 2;
               result[5].value += 1;
               return result;
             });
@@ -601,7 +616,7 @@ class App extends Component {
 
   render() {
     return (
-      <Quiz data={this.state.questionAnswer} select={this.select}></Quiz>
+      <Quiz data={this.state.questionAnswer} select={this.select} result={this.result}/>
     );
   }
 }

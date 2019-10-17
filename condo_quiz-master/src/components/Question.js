@@ -1,21 +1,34 @@
 import React, { Component } from 'react'
 import Answer from './Answer'
+import {
+  Redirect,
+} from "react-router-dom";
 
 export class Question extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            redirect: false,
+        }
+    }
     select = (index) => {
         this.props.select(this.props.question,index);
+        this.setState({
+            redirect: true
+        })
     } 
 
     render() {
-        console.log('====================================');
-        console.log(this.props);
-        console.log('====================================');
-
         const picture = {
             background: "url('https://image.cnbcfm.com/api/v1/image/105992231-1561667465295gettyimages-521697453.jpeg?v=1561667497&w=678&h=381')",
             backgroundSize: 'cover'
         }
 
+        if (this.state.redirect) {
+            return (
+                <Redirect to={this.props.question < 9 ? "/question" + (1+this.props.question) : "conclusion"}/>
+            )
+        }
         return (
             <div className="container">
                 <br></br>
