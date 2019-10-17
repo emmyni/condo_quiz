@@ -12,7 +12,7 @@ export class QuestionList extends Component {
         return this.props.data.map((data, index) => {
             return ( 
                 <Route path={"/question"+index} key={index}>
-                    <Question data={data} select={this.select}/>
+                    <Question data={data} index={index} select={this.select}/>
                 </Route>
             )
         })

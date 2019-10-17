@@ -1,15 +1,29 @@
 import React, { Component } from 'react'
 import Answer from './Answer'
+import {
+    Redirect,
+  } from "react-router-dom";
 
 export class Question extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            redirect: false
+        }
+    }
     select = (value) => {
         this.props.select(value);
+        this.setState({
+            redirect: true
+        })
     } 
 
     render() {
-        console.log('====================================');
-        console.log(this.props);
-        console.log('====================================');
+        if (this.state.redirect) {
+            return (
+            <Redirect to={"/question" + (1+this.props.index)}/>
+            )
+        }
         return (
             <div className="container">
                 <section className="hero">

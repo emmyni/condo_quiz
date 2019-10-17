@@ -144,7 +144,7 @@ class App extends Component {
           option: "I can just walk to the shop down the road",
         },
         {
-          option: "I'll get my groceries quickly delivered,",
+          option: "I'll get my groceries quickly delivered",
         },
         {
           option: "Let's get brunch instead",
