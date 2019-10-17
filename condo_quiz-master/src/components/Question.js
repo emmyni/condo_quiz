@@ -3,7 +3,7 @@ import Answer from './Answer'
 
 export class Question extends Component {
     select = (index) => {
-        this.props.select(this.props.question, index);
+        this.props.select(this.props.question,index);
     } 
 
     render() {
