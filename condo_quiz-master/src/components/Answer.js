@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 
 export class Answer extends Component {
     select = () => {
-        this.props.select(this.props.value);
+        this.props.select(this.props.index);
     } 
     render() {
         return (

@@ -5,14 +5,14 @@ import {
 import Question from './Question.js'
 
 export class QuestionList extends Component {
-    select = (value) => {
-        this.props.select(value);
+    select = (question, index) => {
+        this.props.select(question, index);
     }  
     render() {
         return this.props.data.map((data, index) => {
             return ( 
                 <Route path={"/question"+index} key={index}>
-                    <Question data={data} select={this.select}/>
+                    <Question data={data} question={index} select={this.select}/>
                 </Route>
             )
         })

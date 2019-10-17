@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Answer from './Answer'
 
 export class Question extends Component {
-    select = (value) => {
-        this.props.select(value);
+    select = (index) => {
+        this.props.select(this.props.question, index);
     } 
 
     render() {
@@ -12,7 +12,7 @@ export class Question extends Component {
         console.log('====================================');
         return (
             <div className="container">
-                <section className="hero">
+                <section className="hero is-large">
                     <div className="hero-body">
                         <div className="container">
                         <h1 className="title">
@@ -23,7 +23,7 @@ export class Question extends Component {
                 </section>
                 <div className="tile is-ancestor" style={{"flexWrap": "wrap"}}>
                 {this.props.data.options.map((value, index) => {
-                    return <Answer key={index} value={value} select={this.select}/>
+                    return <Answer key={index} index={index} value={value} select={this.select}/>
                 })}
                 </div>
             </div>
