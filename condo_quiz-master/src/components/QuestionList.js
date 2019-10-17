@@ -1,18 +1,22 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {
     Route,
   } from "react-router-dom"
 import Question from './Question.js'
 
-function QuestionList(props) {
-    return props.data.map((data, index) => {
-        console.log([data, index])
-        return ( 
-            <Route path={"/question"+index} key={index}>
-                <Question data={data}/>
-            </Route>
-        )
-    })
+export class QuestionList extends Component {
+    select = (value) => {
+        this.props.select(value);
+    }  
+    render() {
+        return this.props.data.map((data, index) => {
+            return ( 
+                <Route path={"/question"+index} key={index}>
+                    <Question data={data} select={this.select}/>
+                </Route>
+            )
+        })
+    }
 }
 
 export default QuestionList 

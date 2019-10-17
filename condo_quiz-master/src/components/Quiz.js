@@ -1,18 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
 import QuestionList from './QuestionList.js'
 import {
     BrowserRouter as Router,
     Switch,
   } from "react-router-dom"
 
-  function Quiz(props) {
-    return (
-        <Router>
-            <Switch>
-                <QuestionList data={props.data} />
-            </Switch>
-        </Router>
-    )
+  export class Quiz extends Component {
+    select = (value) => {
+        this.props.select(value);
+    }
+
+    render() {
+        return (
+            <Router>
+                <Switch>
+                    <QuestionList data={this.props.data} select={this.select}/>
+                </Switch>
+            </Router>
+        )
+    }
   }
 
   export default Quiz 

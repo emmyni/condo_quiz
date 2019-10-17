@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import Answer from './Answer'
-import { Button } from 'react-bulma-components'
 
 export class Question extends Component {
+    select = (value) => {
+        this.props.select(value);
+    } 
+
     render() {
         // const card = {
         //     height: '200px'
@@ -15,21 +18,21 @@ export class Question extends Component {
         ]
         return (
             <div className="container">
-                <section class="hero">
-                    <div class="hero-body">
-                        <div class="container">
-                        <h1 class="title">
+                <section className="hero">
+                    <div className="hero-body">
+                        <div className="container">
+                        <h1 className="title">
                             Do you have kids?
                         </h1>
-                        <h2 class="subtitle">
+                        <h2 className="subtitle">
                             Hero subtitle
                         </h2>
                         </div>
                     </div>
                 </section>
-                <div class="tile is-ancestor" style={{"flex-wrap": "wrap"}}>
+                <div className="tile is-ancestor" style={{"flexWrap": "wrap"}}>
                 {answers.map((value, index) => {
-                    return <Answer value={value}/>
+                    return <Answer key={index} value={value} select={this.select}/>
                 })}
                 </div>
                 {/* <div className="card is-6" style={{card}}>
