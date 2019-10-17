@@ -181,18 +181,107 @@ class App extends Component {
             option: "Open concept loft",
           },]
         },
-      ] 
+      ],
+      result: [
+        {
+          neighbourhood: 'Trinity Bellwoods',
+          value: 0
+        },
+        {
+          neighbourhood: 'King West',
+          value: 0
+        },
+        {
+          neighbourhood: 'Leslieville',
+          value: 0
+        },
+        {
+          neighbourhood: 'Beaches',
+          value: 0
+        },
+        {
+          neighbourhood: 'Waterfront',
+          value: 0
+        },
+        {
+          neighbourhood: 'High Park',
+          value: 0
+        },
+        {
+          neighbourhood: 'Yorkville',
+          value: 0
+        }
+      ]
     }
   }
 
   select = (question, index) => {
     this.setState(prevState => {
-      // questionAnswer[question].selected: index;
       let questionAnswer = {...prevState.questionAnswer};
       questionAnswer[question].selected = index;
       return questionAnswer;
     });
-    console.log(this.state.questionAnswer);
+
+    switch(question) {
+      case 0:
+        switch(index) {
+          case 0:
+            this.setState(prevState => {
+              let result = {...prevState.result};
+              result[1].value += 2;
+              result[4].value += 1;
+              return result;
+            });
+            break;
+          case 1:
+            this.setState(prevState => {
+              let result = {...prevState.result};
+              result[0].value += 2;
+              result[5].value += 1;
+              return result;
+            });
+            break;
+            case 2:
+              this.setState(prevState => {
+                let result = {...prevState.result};
+                result[3].value += 2;
+                result[2].value += 1;
+                return result;
+              });
+              break;
+            case 3:
+              this.setState(prevState => {
+                let result = {...prevState.result};
+                result[6].value += 1;
+                return result;
+              });
+              break;
+            default:
+              break;
+        }
+        break;
+      case 1:
+        // code block
+        break;
+      case 2:
+        // code block
+        break;
+      case 3:
+        // code block
+        break;
+      case 4:
+        // code block
+        break;
+      case 5:
+        // code block
+        break;
+      case 6:
+        // code block
+        break;
+      default:
+        break;
+    }
+    console.log(this.state.result)
   }
 
   render() {
