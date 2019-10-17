@@ -577,7 +577,7 @@ class App extends Component {
               break;
               case 2:
                 this.setState(prevState => {
-                  let result = {...prevState.result};ß
+                  let result = {...prevState.result};
                   result[2].value += 1;
                   return result;
                 });
