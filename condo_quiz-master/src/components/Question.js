@@ -7,6 +7,12 @@ export class Question extends Component {
         // const card = {
         //     height: '200px'
         // };
+        const answers = [
+            '1',
+            '2',
+            '3',
+            '4'
+        ]
         return (
             <div className="container">
                 <section class="hero">
@@ -22,10 +28,9 @@ export class Question extends Component {
                     </div>
                 </section>
                 <div class="tile is-ancestor" style={{"flex-wrap": "wrap"}}>
-                    <Answer />
-                    <Answer />
-                    <Answer />
-                    <Answer />
+                {answers.map((value, index) => {
+                    return <Answer value={value}/>
+                })}
                 </div>
                 {/* <div className="card is-6" style={{card}}>
                     <div className="card-image">
