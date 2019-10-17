@@ -12,7 +12,7 @@ export class Answer extends Component {
                     {/* <figure className="image is-4by3">
                         <img src={this.props.link}></img>
                     </figure> */}
-                    <p className="title">{this.props.value}</p>
+                    <p className="title">{this.props.value.option}</p>
                 </div>
             </div>
         )
