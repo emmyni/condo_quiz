@@ -6,8 +6,8 @@ import {
   } from "react-router-dom"
 
   export class Quiz extends Component {
-    select = (value) => {
-        this.props.select(value);
+    select = (question, index) => {
+        this.props.select(question, index);
     }
 
     render() {

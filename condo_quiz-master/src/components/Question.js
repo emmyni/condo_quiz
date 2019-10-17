@@ -11,22 +11,24 @@ export class Question extends Component {
             redirect: false
         }
     }
-    select = (value) => {
-        this.props.select(value);
+
+    select = (index) => {
+        this.props.select(this.props.question, index);
         this.setState({
             redirect: true
         })
-    } 
+    }
 
     render() {
         if (this.state.redirect) {
             return (
-            <Redirect to={"/question" + (1+this.props.index)}/>
+                
+            <Redirect to={this.props.question < 10 ? "/question" + (1+this.props.question) : "conclusion"}/>
             )
         }
         return (
             <div className="container">
-                <section className="hero">
+                <section className="hero is-large">
                     <div className="hero-body">
                         <div className="container">
                         <h1 className="title">
@@ -37,7 +39,7 @@ export class Question extends Component {
                 </section>
                 <div className="tile is-ancestor" style={{"flexWrap": "wrap"}}>
                 {this.props.data.options.map((value, index) => {
-                    return <Answer key={index} value={value} select={this.select}/>
+                    return <Answer key={index} index={index} value={value} select={this.select}/>
                 })}
                 </div>
             </div>
