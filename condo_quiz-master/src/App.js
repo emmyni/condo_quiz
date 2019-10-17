@@ -261,19 +261,189 @@ class App extends Component {
         }
         break;
       case 1:
-        // code block
+          switch(index) {
+            case 0:
+              this.setState(prevState => {
+                let result = {...prevState.result};
+                result[0].value += 2;
+                result[5].value += 1;
+                result[3].value += 3;
+                return result;
+              });
+              break;
+            case 1:
+              this.setState(prevState => {
+                let result = {...prevState.result};
+                result[6].value += 1;
+                return result;
+              });
+              break;
+              case 2:
+                this.setState(prevState => {
+                  let result = {...prevState.result};
+                  result[1].value += 2;
+                  result[2].value += 1;
+                  return result;
+                });
+                break;
+              case 3:
+                this.setState(prevState => {
+                  let result = {...prevState.result};
+                  result[4].value += 1;
+                  return result;
+                });
+                break;
+              default:
+                break;
+          }
         break;
       case 2:
-        // code block
+          switch(index) {
+            case 0:
+              this.setState(prevState => {
+                let result = {...prevState.result};
+                result[6].value += 2;
+                result[3].value += 1;
+                return result;
+              });
+              break;
+            case 1:
+              this.setState(prevState => {
+                let result = {...prevState.result};
+                result[0].value += 2;
+                result[2].value += 1;
+                return result;
+              });
+              break;
+              case 2:
+                this.setState(prevState => {
+                  let result = {...prevState.result};
+                  result[4].value += 2;
+                  return result;
+                });
+                break;
+              case 3:
+                this.setState(prevState => {
+                  let result = {...prevState.result};
+                  result[1].value += 1;
+                  result[5].value += 2;
+                  return result;
+                });
+                break;
+              default:
+                break;
+          }
         break;
       case 3:
-        // code block
+          switch(index) {
+            case 0:
+              this.setState(prevState => {
+                let result = {...prevState.result};
+                result[2].value += 3;
+                result[5].value += 2;
+                result[3].value += 1;
+                return result;
+              });
+              break;
+            case 1:
+              this.setState(prevState => {
+                let result = {...prevState.result};
+                result[6].value += 2;
+                result[4].value += 1;
+                return result;
+              });
+              break;
+              case 2:
+                this.setState(prevState => {
+                  let result = {...prevState.result};
+                  result[0].value += 2;
+                  return result;
+                });
+                break;
+              case 3:
+                this.setState(prevState => {
+                  let result = {...prevState.result};
+                  result[1].value += 1;
+                  return result;
+                });
+                break;
+              default:
+                break;
+          }
         break;
       case 4:
-        // code block
+          switch(index) {
+            case 0:
+              this.setState(prevState => {
+                let result = {...prevState.result};
+                result[3].value += 2;
+                result[4].value += 1;
+                return result;
+              });
+              break;
+            case 1:
+              this.setState(prevState => {
+                let result = {...prevState.result};
+                result[5].value += 2;
+                result[0].value += 1;
+                return result;
+              });
+              break;
+              case 2:
+                this.setState(prevState => {
+                  let result = {...prevState.result};
+                  result[6].value += 1;
+                  result[2].value += 2;
+                  return result;
+                });
+                break;
+              case 3:
+                this.setState(prevState => {
+                  let result = {...prevState.result};
+                  result[1].value += 1;
+                  return result;
+                });
+                break;
+              default:
+                break;
+          }
         break;
       case 5:
-        // code block
+          switch(index) {
+            case 0:
+              this.setState(prevState => {
+                let result = {...prevState.result};
+                result[2].value += 2;
+                result[0].value += 1;
+                return result;
+              });
+              break;
+            case 1:
+              this.setState(prevState => {
+                let result = {...prevState.result};
+                result[6].value += 2;
+                result[1].value += 1;
+                return result;
+              });
+              break;
+              case 2:
+                this.setState(prevState => {
+                  let result = {...prevState.result};
+                  result[5].value += 1;
+                  result[3].value += 2;
+                  return result;
+                });
+                break;
+              case 3:
+                this.setState(prevState => {
+                  let result = {...prevState.result};
+                  result[4].value += 1;
+                  return result;
+                });
+                break;
+              default:
+                break;
+          }
         break;
       case 6:
         switch(index) {
