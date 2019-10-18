@@ -11,21 +11,29 @@ export default class resultPage extends Component {
             blurb,
             link,
         } = result
+
+        const heroBody = {
+            padding: ' 48px 24px'
+        }
         console.log('====================================');
         console.log(result);
         console.log('====================================');
         return (
             <div className="container">
                 <section className="hero is-large">
-                    <div className="hero-body">
-                <div className="tile is-child box">
-                {neighbourhood ? "Your neighbourhood is " + neighbourhood : 'You have not completed the quiz!'}
-                <img src={img} alt=""></img>
-                <h3>{descrip}</h3>
-                <h4>{blurb}<a href={link}> Find out more...</a></h4>
-                </div>
-            </div>
-            </section>
+                    <div className="hero-body" style={heroBody}>
+                        <div className="tile is-ancestor">
+                            <div className="tile is-child box has-text-centered">
+                                <h1 className="title">
+                                    {neighbourhood ? "Your neighbourhood is " + neighbourhood : 'You have not completed the quiz!'}
+                                </h1>
+                                <img src={img} alt=""></img>
+                                <h3>{descrip}</h3>
+                                <h4>{blurb}<a href={link}> Find out more...</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
             
         )

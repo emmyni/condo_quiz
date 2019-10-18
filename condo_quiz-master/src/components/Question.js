@@ -34,14 +34,21 @@ export class Question extends Component {
             padding: '20px'
         }
 
+        const centered = {
+            width: '100%',
+            height: '100%',
+            padding: '30px',
+            background: '#fafafa',
+            position: 'relative'
+        }
+
         if (this.state.redirect) {
             return (
                 <Redirect to={this.props.question < 9 ? "/question" + (1+this.props.question) : "conclusion"}/>
             )
         }
         return (
-            <div className="container">
-                <br></br>
+            <div className="container" style={centered}>
                 <section className="hero is-large" style={boxShadowStyle}>
                     <div className="hero-body" style={picture}>
                         <div className="container">
