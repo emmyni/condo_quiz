@@ -17,13 +17,13 @@ export class Answer extends Component {
     }
 
     render() {
-        var boxShadowStyle = {
-            border: '1px solid',
+        let boxShadowStyle = {
+            border: '2px solid',
             padding: '10px',
-            boxhadow: '5px 10px 8px #888888'
+            boxShadow: '8px 10px 10px #888888'
         }
 
-        var linkStyle;
+        let linkStyle;
         if (this.state.hover) {
             linkStyle = {background:'#f2f2f2'}
         }
@@ -33,7 +33,7 @@ export class Answer extends Component {
 
         return (
             <div className="tile is-6 is-parent hover">
-                <div className="tile is-child box" style={Object.assign(boxShadowStyle, linkStyle)} onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} onClick={this.select}>
+                <div className="tile is-child box has-text-centered" style={Object.assign(boxShadowStyle, linkStyle)} onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} onClick={this.select}>
                     {/* <figure className="image is-4by3">
                         <img src={this.props.link}></img>
                     </figure> */}

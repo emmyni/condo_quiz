@@ -3,7 +3,6 @@ import Answer from './Answer'
 import {
   Redirect,
 } from "react-router-dom";
-import { whileStatement } from '@babel/types';
 
 export class Question extends Component {
     constructor(props) {
@@ -21,12 +20,18 @@ export class Question extends Component {
     }
 
     render() {
+        let boxShadowStyle = {
+            border: '2px solid',
+            boxShadow: '8px 10px 10px #888888'
+        }
+
         const picture = {
-            background: "url('https://image.cnbcfm.com/api/v1/image/105992231-1561667465295gettyimages-521697453.jpeg?v=1561667497&w=678&h=381')",
+            background: this.props.data.picture,
             backgroundSize: 'cover'
         }
         const question = {
-            background: 'white'
+            background: 'white',
+            padding: '20px'
         }
 
         if (this.state.redirect) {
@@ -37,18 +42,16 @@ export class Question extends Component {
         return (
             <div className="container">
                 <br></br>
-                <section className="hero is-large" style={picture}>
-                    <div className="hero-body">
+                <section className="hero is-large" style={boxShadowStyle}>
+                    <div className="hero-body" style={picture}>
                         <div className="container">
                         </div>
                     </div>
-                </section>
-                <section className="hero is-small" style={question}>
-                    <div className="hero-body">
-                        <div className="container">
-                        <h1 className="title">
-                            {this.props.data.question}
-                        </h1>
+                    <div className="hero-foot" style={question}>
+                        <div className="container has-text-centered">
+                            <h1 className="title">
+                                {this.props.data.question}
+                            </h1>
                         </div>
                     </div>
                 </section>
