@@ -262,7 +262,7 @@ class App extends Component {
     }
     largestObj.descrip = ""
     if (questionAnswer[0].selected === 2 && (largestObj.index === 2 || largestObj.index === 3)) {
-      largestObj.descrip = (largestObj.neighbourhood == 'The Beaches' ? 'The comminuty focus ' : 'The natural setting and quiet residential streets ') +`at ${largestObj.neighbourhood} is great for someone like yourself that has children or want to have children. ` + largestObj.descrip
+      largestObj.descrip = (largestObj.neighbourhood === 'The Beaches' ? 'The comminuty focus ' : 'The natural setting and quiet residential streets ') +`at ${largestObj.neighbourhood} is great for someone like yourself that has children or want to have children. ` + largestObj.descrip
     }
     if (questionAnswer[1].selected === 0 && (largestObj.index === 5 || largestObj.index === 0 || largestObj.index === 3)) {
       largestObj.descrip = `You will love this neighbourhood as much as your dog because of the parks and places you could go to! `+ largestObj.descrip

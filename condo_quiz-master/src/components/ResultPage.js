@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import image from "./images/TheBeach.jpg"
 
 export default class resultPage extends Component {
     render() {

@@ -12,11 +12,16 @@ export class Answer extends Component {
         this.props.select(this.props.index);
     }
 
-    toggleHover = () => {
-        this.setState({hover: !this.state.hover});
+    hoverOn = () => {
+        this.setState({hover: true});
+    }
+
+    hoverOff = () => {
+        this.setState({hover: false});
     }
 
     render() {
+        console.log(this.state.hover);
         let boxShadowStyle = {
             border: '2px solid',
             padding: '10px',
@@ -32,8 +37,8 @@ export class Answer extends Component {
         }
 
         return (
-            <div className="tile is-6 is-parent hover">
-                <div className="tile is-child box has-text-centered" style={Object.assign(boxShadowStyle, linkStyle)} onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} onClick={this.select}>
+            <div className="tile is-6 is-parent"  onClick={this.select}>
+                <div className="tile is-child box has-text-centered" style={Object.assign(boxShadowStyle, linkStyle)} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
                     {/* <figure className="image is-4by3">
                         <img src={this.props.link}></img>
                     </figure> */}
