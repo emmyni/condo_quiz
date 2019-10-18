@@ -185,31 +185,52 @@ class App extends Component {
       result: [
         {
           neighbourhood: 'Trinity Bellwoods',
-          value: 0
+          value: 0,
+          img: require('./components/images/62-Claremont-St-2.jpg'),
+          link: 'https://condos.ca/toronto/trinity-bellwoods/condos-for-sale?tab=listings&neighbourhood_id=862',
+          blurb: "Ask any West End resident where their favourite place to spend a lazy day in the sun and chances are they’ll say, Trinity Bellwoods. The 37-acre park is the heart of this neighbourhood, offering a quiet refuge from Queen Street West's trendy cafés, art galleries, and restaurants.",
         },
         {
           neighbourhood: 'King West',
-          value: 0
+          value: 0,
+          img: require('./components/images/270-Wellington-W-1.jpg'),
+          link: 'https://condos.ca/toronto/king-west/condos-for-sale?tab=listings&neighbourhood_id=753',
+          blurb: "Know as the city’s premier Entertainment District, King West can boast about having amazing restaurants, historic theatres and some of the coolest condos in Toronto.",
         },
         {
           neighbourhood: 'Leslieville',
-          value: 0
+          value: 0,
+          img: require('./components/images/245-Carlaw-Ave-1.jpg'),
+          link: 'https://condos.ca/toronto/south-riverdale-leslieville/condos-for-sale?tab=listings&neighbourhood_id=867',
+          blurb: "South Riverdale-Leslieville residents enjoy a pleasant mix of natural settings, quiet residential streets, and a lively selection of chic shops and restaurants on Queen Street.",
         },
         {
-          neighbourhood: 'Beaches',
-          value: 0
+          neighbourhood: 'The Beaches',
+          value: 0,
+          img: require('./components/images/TheBeach.jpg'),
+          link: 'https://condos.ca/toronto/the-beaches/condos-for-sale?tab=listings&neighbourhood_id=870',
+          blurb: "Laid back and community focused, The Beaches are a great place for condo living. There are some amazing organic cafes and food shops, quirky curios and antique shops to spend the winter months.",
         },
         {
-          neighbourhood: 'Waterfront',
-          value: 0
+          neighbourhood: 'The Waterfront',
+          value: 0,
+          img: require('./components/images/10-Yonge-St-11.jpg'),
+          link: 'https://condos.ca/toronto/the-waterfront/condos-for-sale?tab=listings&neighbourhood_id=747',
+          blurb: "There is a great community feel on The Waterfront with numerous parks and beaches to enjoy and always something interesting happening, whether it’s live music at Harbourfront Centre in the summer or free public skating in the winter.",
         },
         {
           neighbourhood: 'High Park',
-          value: 0
+          value: 0,
+          img: require('./components/images/1-Old-Mill-2.jpg'),
+          link: 'https://condos.ca/toronto/high-park-north/condos-for-sale?tab=listings&neighbourhood_id=857',
+          blurb: "The 400-acre outdoor recreational space offers an abundance of natural greenery and walking trails, plus playing fields, tennis and basketball courts, children’s playgrounds, education and cultural facilities, and even a zoo.",
         },
         {
           neighbourhood: 'Yorkville',
-          value: 0
+          value: 0,
+          img: require('./components/images/38-Avenue-2.jpg'),
+          link: 'https://condos.ca/toronto/yorkville/condos-for-sale?tab=listings&neighbourhood_id=760',
+          blurb: "Yorkville gives you access to the worlds most sought after brands such as Hermes, Chanel and Rolex. Luxury abounds with not only amazing shopping but also some of the most exclusive and long-standing restaurants in Toronto, there is no better place to be on a beautiful day than the patio at One or Sassafraz.",
         }
       ]
     }
@@ -220,13 +241,32 @@ class App extends Component {
       value: -1,
     }
     const {
-      result
+      result,
+      questionAnswer,
     } = this.state
     for(let i = 0; i < 7; i++) {
       if (largestObj.value < result[i].value) {
         largestObj = result[i]
+        largestObj.index = i
       }
     }
+    largestObj.descrip = ""
+    if (questionAnswer[0].selected === 2 && (largestObj.index === 2 || largestObj.index === 3)) {
+      largestObj.descrip = (largestObj.neighbourhood == 'The Beaches' ? 'The comminuty focus ' : 'The natural setting and quiet residential streets ') +`at ${largestObj.neighbourhood} is great for someone like yourself that has children or want to have children. ` + largestObj.descrip
+    }
+    if (questionAnswer[1].selected === 0 && (largestObj.index === 5 || largestObj.index === 0 || largestObj.index === 3)) {
+      largestObj.descrip = `You will love this neighbourhood as much as your dog because of the parks and places you could go to! `+ largestObj.descrip
+    }
+    if (questionAnswer[3].selected === 3 && largestObj.index === 1) {
+      largestObj.descrip = `Filled with trendy and cool restraunts, you will always be able to find places to eat and have fun! `+ largestObj.descrip
+    }
+    if (questionAnswer[4].selected === 0 && (largestObj.index === 3 || largestObj.index === 4)) {
+      largestObj.descrip = `For someone that enjoys being near the water such as yourself, ${largestObj.neighbourhood} is ideal and the place to be. ` + largestObj.descrip
+    }
+    if (questionAnswer[8].selected == 2 && (largestObj.index == 2 || largestObj.index == 6)) {
+      largestObj.descrip = `${largestObj.neighbourhood} has many restaurants and is perfect for when you want a nice quiet dinner with friends. ` + largestObj.descrip
+    }
+    
     return largestObj
   }
 
@@ -611,7 +651,6 @@ class App extends Component {
       default:
         break;
     }
-    console.log(this.state.result)
   }
 
   render() {
